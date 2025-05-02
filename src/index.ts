@@ -1,7 +1,20 @@
-import type { Node, Token } from "./types.ts";
+
+export interface Token {
+  type: string;
+  value: string | [] | string[] |undefined;
+  element: string,
+  key: number,
+  classname: string | null
+  ref?: string | null
+}
+
+export interface Node {
+  type: string;
+  body: Token[]
+}
 
 
-export function astLexer(txt:string) {
+function astLexer(txt:string) {
     const src = txt.split("\n");
 
     const tokens:string[] = [];
@@ -16,7 +29,7 @@ export function astLexer(txt:string) {
 }
 
 
-export function astRunTime(src: string[]):Node {
+function astRunTime(src: string[]):Node {
    
     const tokens: Token[] = [];
 
@@ -114,4 +127,17 @@ export function astRunTime(src: string[]):Node {
         type: "Node",
         body: tokens,
     };
+}
+
+
+/**
+ * @function txtMarkUp convert a formatted text file to HTML Ast Node. 
+    @returns Node
+    @example const result = txtMarkup(textSource)
+ */
+
+export function txtMarkUp(textSource: string):Node {
+    const lexer = astLexer(textSource)
+    const ast = astRunTime(lexer)
+    return ast
 }
