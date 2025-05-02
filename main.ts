@@ -6,6 +6,5 @@ const data = await Deno.readFile("eg.txt");
 const file = decoder.decode(data)
 
 
-
 const res = txtMarkUp(file)
 console.log(res)
