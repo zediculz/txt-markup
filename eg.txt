@@ -1,27 +1,14 @@
 
-!Definition
-##intoduction to computing =csc101
-#A Computer is an electronic device that receive data, process the data and output the result of the data.
+!highlight example
 
->https://picsum.photos/200
+#header one
+##header two example =hrefexample
 
-basically, A computer will take in a data information, process it with some set of instructions and finally output the expected result.
-computers can be any form or shapre, ranging from laptops and personal computers to smartphones and other smart tools around us which we use on day to day basis.
+###header three
+parapgraph example
 
-###Types of Computer
--PC, Laptops, SmartPhone, Smart Doors etc, 2 + 1 = 5 
+-list, examples
 
-##What is a Data ? =csc105
-!Data is anything that the computer can process to get an expected result.
+>image link example
 
-data can be anything from a number to an object or collection of numbers, for example; 
-
-###Data object is the collection of datas 
-
-a collection or object of data of a student are the student name, age and class of the student, this student data object can be used by the computer to identify the specific student.
-
-!if we add the student test and examination score, computer can use the them to get the student grade 
-
-###want to Learn more about Data ? =csc105
-
-*BOLD_EXAMPLE
+*BOLD EXAMPLE
