@@ -40,22 +40,28 @@ function astRunTime(src: string[]):Node {
             const headers = src.shift()!.split("#");
     
             const len = headers.length - 1;
-            const element = `h${len}`;
-            const value = headers[len]
-            const refCheck = value.split("=")
-            const ref = refCheck[1] === undefined ? null : refCheck[1]
-            const classname = refCheck[1] === undefined ? "header-box" : "header-ref-box"
+            console.log(len < 6)
+            if (len < 6) {
+                const element = `h${len}`;
+                const value = headers[len]
+                const refCheck = value.split("=")
+                const ref = refCheck[1] === undefined ? null : refCheck[1]
+                const classname = refCheck[1] === undefined ? "header-box" : "header-ref-box"
 
-            const obj: Token = {
-                type: "Header",
-                value: refCheck[0],
-                element,
-                key: src.length,
-                ref,
-                classname
-            };
+                const obj: Token = {
+                    type: "Header",
+                    value: refCheck[0],
+                    element,
+                    key: src.length,
+                    ref,
+                    classname
+                };
 
-            tokens.push(obj);
+                tokens.push(obj);
+            } else {
+                src.shift()
+            }
+
 
         } else if (line !== "" && line[0] === "-") {
             const value = src.shift()?.split("-")[1];
@@ -135,7 +141,6 @@ function astRunTime(src: string[]):Node {
     @returns Node
     @example const result = txtMarkup(textSource)
  */
-
 export function txtMarkUp(textSource: string):Node {
     const lexer = astLexer(textSource)
     const ast = astRunTime(lexer)
