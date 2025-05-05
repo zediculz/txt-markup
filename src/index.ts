@@ -40,7 +40,6 @@ function astRunTime(src: string[]):Node {
             const headers = src.shift()!.split("#");
     
             const len = headers.length - 1;
-            console.log(len < 6)
             if (len < 6) {
                 const element = `h${len}`;
                 const value = headers[len]
@@ -64,13 +63,16 @@ function astRunTime(src: string[]):Node {
 
 
         } else if (line !== "" && line[0] === "-") {
-            const value = src.shift()?.split("-")[1];
-            const lists = value?.split(",")
+            const value = src.shift()?.split("-")[1]?.trim();
+            const lists = value?.split("|")
+
+            const trimLists:string[] = []
+            lists?.flatMap((list) => trimLists.push(list?.trim()))
 
             const obj = {
                 key: src.length,
                 type: "List",
-                value: lists,
+                value: trimLists,
                 element: "ul",
                 classname: "list-box"
             };
