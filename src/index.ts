@@ -2,7 +2,7 @@
 export interface Token {
   type: string;
   value: string | [] | string[] |undefined;
-  element: string,
+  tag: string,
   key: number,
   classname: string | null
   ref?: string | null
@@ -41,7 +41,7 @@ function astRunTime(src: string[]):Node {
     
             const len = headers.length - 1;
             if (len < 6) {
-                const element = `h${len}`;
+                const tag = `h${len}`;
                 const value = headers[len]
                 const refCheck = value.split("=")
                 const ref = refCheck[1] === undefined ? null : refCheck[1]
@@ -50,7 +50,7 @@ function astRunTime(src: string[]):Node {
                 const obj: Token = {
                     type: "Header",
                     value: refCheck[0],
-                    element,
+                    tag,
                     key: src.length,
                     ref,
                     classname
@@ -73,7 +73,7 @@ function astRunTime(src: string[]):Node {
                 key: src.length,
                 type: "List",
                 value: trimLists,
-                element: "ul",
+                tag: "ul",
                 classname: "list-box"
             };
 
@@ -85,7 +85,7 @@ function astRunTime(src: string[]):Node {
             const obj = {
                 type: "Bold",
                 value,
-                element: "b",
+                tag: "b",
                 key: src.length,
                 classname: "bold-box"
             };
@@ -98,7 +98,7 @@ function astRunTime(src: string[]):Node {
             const obj = {
                 type: "Paragraph",
                 value,
-                element: "p",
+                tag: "p",
                 key: src.length,
                 classname: "highlight-box"
             };
@@ -111,7 +111,7 @@ function astRunTime(src: string[]):Node {
             const obj = {
                 type: "Image",
                 value,
-                element: "img",
+                tag: "img",
                 key: src.length,
                 classname: "image-box"
             };
@@ -121,7 +121,7 @@ function astRunTime(src: string[]):Node {
             const obj = {
                 type: "Paragraph",
                 value: src.shift(),
-                element: "p",
+                tag: "p",
                 key: src.length,
                 classname: "paragraph-box"
             };
