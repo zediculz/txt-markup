@@ -1,7 +1,8 @@
 {
   "name": "@datablocks/txtmarkup",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "exports": "./main.ts",
+  "license": "MIT",
   "tasks": {
     "dev": "deno run --watch -RW main.ts"
   },
