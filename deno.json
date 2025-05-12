@@ -1,8 +1,10 @@
 {
+  "name": "@datablocks/txtmarkup",
+  "version": "0.0.1",
+  "exports": "./main.ts",
   "tasks": {
     "dev": "deno run --watch -RW main.ts"
   },
   "imports": {
-    "@std/assert": "jsr:@std/assert@1"
   }
 }
