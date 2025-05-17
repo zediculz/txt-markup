@@ -1,6 +1,6 @@
 {
   "name": "@datablocks/txtmarkup",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "exports": "./main.ts",
   "license": "MIT",
   "tasks": {

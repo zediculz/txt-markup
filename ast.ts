@@ -50,12 +50,11 @@ export function txtRunTime(src: string[]):Node {
       const body = value?.split("=")[1]
 
       const lists = body?.split(",");
-      console.log(body)
 
       const trimLists: string[] = [];
       lists?.flatMap((list) => {
         if(list !== "") {
-            trimLists.push(list?.trim())
+          trimLists.push(list?.trim())
         }
       });
 

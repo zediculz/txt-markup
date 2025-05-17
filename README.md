@@ -1,2 +1,2 @@
 
-#txtMarkup convert formatted to HTML Abstract Node.
+txtMarkup convert formatted Text to HTML Abstract Node.
