@@ -9,10 +9,9 @@ import type { Node } from "./lexer.ts";
    */
   export function txtMarkUp(textSource: string):Node {
       const lexer = txtLexer(textSource)
-      const ast = txtRunTime(lexer)
-      return ast
+      return txtRunTime(lexer)
   }
 
-  const ast = txtMarkUp("todo list")
+  const ast = txtMarkUp("-todo list =work, work")
 
   console.log(ast)

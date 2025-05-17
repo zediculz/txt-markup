@@ -8,7 +8,8 @@ export interface Token {
     ref?: string | null,
     src?: string | null,
     template?: string | null,
-    list?: string | [] | string[] |undefined
+    list?: string | [] | string[] |undefined,
+    alt?: string | [] | string[] |undefined
   }
   
   export interface Node {
@@ -16,8 +17,11 @@ export interface Token {
     body: Token[]
   }
   
-  
-  export function txtLexer(txt:string) {
+   /**
+   * @function txtLexer txtMarkup lexer
+      @example const lexer = txtLexer(txt)
+   */
+  export function txtLexer(txt:string):string[] {
       const src = txt.split("\n");
   
       const tokens:string[] = [];

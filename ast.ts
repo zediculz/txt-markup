@@ -1,6 +1,11 @@
 import type { Node, Token } from "./lexer.ts";
 
-export function txtRunTime(src: string[]): Node {
+/**
+  @function txtRunTime generate txtMarkUp Node 
+  @returns Node
+  @example const ast = txtMarkup(textSource)
+*/
+export function txtRunTime(src: string[]):Node {
   const tokens: Token[] = [];
 
   while (src.length > 0) {
@@ -24,7 +29,7 @@ export function txtRunTime(src: string[]): Node {
         const template = `<${tag}>${value}</${tag}>`
 
         const obj: Token = {
-          type: "Header",
+          type: "HeaderTag",
           value,
           tag,
           key: src.length,
@@ -45,6 +50,7 @@ export function txtRunTime(src: string[]): Node {
       const body = value?.split("=")[1]
 
       const lists = body?.split(",");
+      console.log(body)
 
       const trimLists: string[] = [];
       lists?.flatMap((list) => {
@@ -53,8 +59,7 @@ export function txtRunTime(src: string[]): Node {
         }
       });
 
-        const template = `<ul>${trimLists.flatMap((value) => `<li>${value}</li>`)}</ul>`
-
+      const template = `<ul>${trimLists.flatMap((value) => `<li>${value}</li>`)}</ul>`
 
       const obj = {
         key: src.length,
@@ -96,7 +101,8 @@ export function txtRunTime(src: string[]): Node {
         tag: "img",
         key: src.length,
         classname: "image-box",
-        template
+        template, 
+        alt
       };
 
       tokens.push(obj);
@@ -137,7 +143,7 @@ export function txtRunTime(src: string[]): Node {
   }
 
   return {
-    type: "Node",
+    type: "NodeType",
     body: tokens,
   };
 }
