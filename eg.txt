@@ -1,5 +1,5 @@
 
-!highlight example
+>highlight example
 
 #header one
 ##header two example =hrefexample
@@ -9,8 +9,8 @@
 
 parapgraph example
 
--list element 1 | examples of cars like byd, tesla and more | list items three | 3.56 + 1.56 = 5.66
+-list element 1  =examples of cars like byd, tesla and more, list items three, 3.56 + 1.56 = 5.66
 
->image link example
+!image link example =altexample
 
 *BOLD EXAMPLE
