@@ -54,11 +54,13 @@ export function txtRunTime(src: string[]):Node {
       const trimLists: string[] = [];
       lists?.flatMap((list) => {
         if(list !== "") {
-          trimLists.push(list?.trim())
+          const value = list?.trim()
+          const temp = `<li>${value}</li>`
+          trimLists.push(temp)
         }
       });
 
-      const template = `<ul>${trimLists.flatMap((value) => `<li>${value}</li>`)}</ul>`
+      const template = `<ul>${trimLists.flatMap((value) => value)}</ul>`
 
       const obj = {
         key: src.length,
@@ -90,9 +92,10 @@ export function txtRunTime(src: string[]):Node {
        //image tag
       const imgValue = src.shift()?.split("!")[1];
       const value = imgValue?.split("=")[0]?.trim();
-      const alt = imgValue?.split("=")[1]?.trim();
-      
-      const template = `<img src={${value}} alt=${alt} />`
+      const _alt = imgValue?.split("=")[1]?.trim();
+      const alt = _alt === undefined ? null : _alt
+    
+      const template =  alt === null ? `<img src={${value}} />` : `<img src={${value}} alt=${alt} />` 
 
       const obj = {
         type: "ImageTag",
@@ -101,7 +104,7 @@ export function txtRunTime(src: string[]):Node {
         key: src.length,
         classname: "image-box",
         template, 
-        alt
+        alt: alt as string
       };
 
       tokens.push(obj);

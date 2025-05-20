@@ -11,3 +11,6 @@ export default function txtMarkUp(textSource: string):Node {
     const lexer = txtLexer(textSource)
     return txtRunTime(lexer)
 }
+
+const ast = txtMarkUp("-list of something =one, two, three")
+console.log(ast)
