@@ -92,7 +92,7 @@ export function txtRunTime(src: string[]):Node {
       const value = imgValue?.split("=")[0]?.trim();
       const alt = imgValue?.split("=")[1]?.trim();
       
-      const template = `<img src=${value} alt=${alt} />`
+      const template = `<img src={${value}} alt=${alt} />`
 
       const obj = {
         type: "ImageTag",
